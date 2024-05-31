@@ -12,7 +12,7 @@ from kasa import Discover
 # pylint: disable=broad-exception-raised, broad-exception-caught
 
 def set_dirs():
-    # Ensure working directory = script directory. 
+    """ Ensure working directory = script directory. """
     if sys.path[0] != os.getcwd():
         print(f"Changing working directory to {sys.path[0]}")
         os.chdir( sys.path[0] )
@@ -64,7 +64,8 @@ class KasaDevices:
         if not dev in self.devices:
             print(f"Can't find device to turn on: {dev}")
             return None
-        elif self.devices[dev].is_on:
+        
+        if self.devices[dev].is_on:
             print(f"Device {dev} is already on")
         else:
             print(f"Turning {dev} on")
@@ -77,7 +78,8 @@ class KasaDevices:
         if not dev in self.devices:
             print(f"Can't find device to turn off: {dev}")
             return None
-        elif self.devices[dev].is_off:
+        
+        if self.devices[dev].is_off:
             print(f"Device {dev} is already off")
         else:
             print(f"Turning {dev} off")
