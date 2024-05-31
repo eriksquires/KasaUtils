@@ -16,21 +16,18 @@ class Timer:
         self._start_time = time()
         self._last = 0
 
+    def __repr__(self) -> str:
+        return str(self.elapsed())
+
+    def last(self):
+        """Returns previous elapsed time, not current elapsed time."""
+        return self._last
 
     def elapsed(self):
         """Return the elapsed time in whole seconds."""
         self._last = round(time() - self._start_time, self._digits)
         return self._last
 
-    def __repr__(self) -> str:
-        return str(self.elapsed())
 
     def stop(self):
         """There's no reason to stop a timer since no work happens if no methods are called."""
-
-    def last(self):
-        """Returns previous elapsed time, not current elapsed time."""
-        return self._last
-
-    # Aliases
-    e = elapsed
