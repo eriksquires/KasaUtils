@@ -78,11 +78,11 @@ async def main():
             sleep(30)
             if net_test():
                 print("Hargray is back!")
-                print(f"Seconds to reconnect: {t.elapsed()}")
+                print(f"Seconds to reconnect: {t}")
                 await devs.turn_off("Net lamp")
                 break
 
-            print(f"Still waiting at {t.elapsed()} seconds.")
+            print(f"Still waiting at {t} seconds.")
         else:
             print("Ran out of time checking for network.")
 
